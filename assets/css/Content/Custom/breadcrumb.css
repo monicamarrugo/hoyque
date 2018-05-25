@@ -1,0 +1,75 @@
+.breadcrumb {
+    list-style: none;
+    overflow: hidden;
+    display:inline-block;
+
+    padding-left:0;
+}
+
+    .breadcrumb li {
+        float: left;
+    }
+
+        .breadcrumb li a {
+            color: #000;
+            text-decoration: none;
+            padding: 10px 0 10px 55px;
+            background-color: #ededee; /* fallback color */
+            position: relative;
+            display: block;
+            float: left;
+            cursor: pointer
+
+        }
+
+            .breadcrumb li a:after {
+                content: " ";
+                display: block;
+                width: 0;
+                height: 0;
+                border-top: 50px solid transparent; /* Go big on the size, and let overflow hide */
+                border-bottom: 50px solid transparent;
+                border-left: 30px solid #ededee;
+                position: absolute;
+                top: 50%;
+                margin-top: -50px;
+                left: 100%;
+                z-index: 2;
+            }
+
+            .breadcrumb li a:before {
+                content: " ";
+                display: block;
+                width: 0;
+                height: 0;
+                border-top: 50px solid transparent; /* Go big on the size, and let overflow hide */
+                border-bottom: 50px solid transparent;
+                border-left: 30px solid white;
+                position: absolute;
+                top: 50%;
+                margin-top: -50px;
+                margin-left: 1px;
+                left: 100%;
+                z-index: 1;
+            }
+
+        .breadcrumb li:first-child a {
+            padding-left: 10px;
+        }
+
+        .breadcrumb li:last-child a {
+            padding-right: 10px;
+        }
+
+            .breadcrumb li:last-child a:after {
+                border: 0;
+            }
+
+        .breadcrumb li.selected a {
+            background-color: #f08800;
+            color: #FFF;
+        }
+
+            .breadcrumb li.selected a:after {
+                border-left-color: #f08800;
+            }

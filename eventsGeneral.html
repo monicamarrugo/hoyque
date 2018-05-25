@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="assets/ico/favicon.ico">
+
+	<title>Sitio</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="assets/css/bootstrap.css" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/css/font-awesome.min.css" rel="stylesheet">
+
+
+	<!-- Just for debugging purposes. Don't actually copy this line! -->
+	<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+	<script src="assets/js/modernizr.js"></script>
+</head>
+
+<body>
+
+	<!-- Fixed navbar -->
+	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="mapa.html">
+				<img class="img-logosmall" src="assets/img/design/logo-small.png" />
+				</a>
+			</div>
+
+			<!--/.nav-collapse -->
+		</div>
+	</div>
+
+
+	<!-- *****************************************************************************************************************
+	 BLUE WRAP
+	 ***************************************************************************************************************** -->
+
+	<!-- *****************************************************************************************************************
+	 TITLE & CONTENT
+	 ***************************************************************************************************************** -->
+
+	<div class="container mt">
+		<div class="row" role="form">
+			<div class="col-md-12">
+				<div class="alert-box alert-success" id="msjSucces"></div>
+				<div class="alert-box alert-danger" id="msjError"></div>
+				<div class="alert-box alert-info" id="msjInfo"></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<br/>
+				<ul class="timeline" data-bind="foreach: availableEvents">
+                                <li>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4 class="timeline-title" data-bind="text: nombre">Carlos Vives y Maluma Baby!</h4>
+                                            <p><small class="text-muted"><i class="fa fa-clock-o"></i> <span data-bind="text: fecha">14 Diciembre 2017</span></small>
+                                            </p>
+                                        </div>
+										<div class="panel-media-event">
+										<img data-bind="attr:{src:'http://www.hoyque.co/sitexplorer/DataSites/' + imagen}"alt="Imagen">
+										</div>
+                                        <div class="timeline-body">
+                                            <p data-bind="text: descripcion">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero laboriosam dolor perspiciatis omnis exercitationem. Beatae, officia pariatur? Est cum veniam excepturi. Maiores praesentium, porro voluptas suscipit facere rem dicta, debitis.</p>
+                                        </div>
+                                    </div>
+                                </li>
+								<br/>
+				</ul>
+			</div>
+		</div>
+			<nav class="navbar navbar-default navbar-fixed-bottom">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="col-lg-3 bottomborder">
+					</div>
+					<div class="col-lg-5 bottomborder-r">
+					</div>
+				</div>
+			</div>
+			<div id="divTool" class="container panel-body navfooter centered">
+					<a style="margin-right:15px" data-bind="attr:{href: 'mapa.html'}" type="button" class="btnOption">
+						<i class="fa fa-globe fa-2x"></i>
+					</a>
+					<a style="margin-right:15px" data-bind="attr:{href: 'sitesBrowser.html?idCategory=1&view=mapa'}" type="button" class="btnOption mapa">
+						<i class="fa fa-cutlery fa-2x"></i>
+					</a>
+					<a style="margin-right:15px" data-bind="attr:{href: 'sitesBrowser.html?idCategory=2&view=palma'}" type="button" class="btnOption palma">
+						<img class="imgPalm" src="assets/img/design/iconPalmB.png" width="45px" height="45px" />
+					</a>
+					<a style="margin-right:15px" data-bind="attr:{href: 'sitesBrowser.html?idCategory=4&view=nocturno'}" type="button" class="btnOption nocturno">
+						<i class="fa fa-glass fa-2x"></i>
+					</a>
+					<a style="margin-right:15px" data-bind="attr:{href: 'sitesBrowser.html?idCategory=3&view=sports'}" type="button" class="btnOption sports">
+						<img class="imgSports" src="assets/img/design/iconSports.png" width="45px" height="45px" />
+					</a>
+					<a style="margin-right:15px" href="eventsGeneral.html" type="button" class="btnOption current">
+						<i class="fa fa-calendar fa-2x"></i>
+					</a>
+					<a data-bind="attr:{href: 'infoUser.html'}" type="button" class="btnOption">
+						<i class="fa fa-user fa-2x"></i>
+					</a>
+
+				</div>
+		</nav>
+	</div>
+	<! --/container -->
+
+	<!-- *****************************************************************************************************************
+	 PORTFOLIO SECTION
+	 ***************************************************************************************************************** -->
+
+	<!--/Portfoliowrap -->
+
+
+
+	<!-- *****************************************************************************************************************
+	 FOOTER
+	 ***************************************************************************************************************** -->
+	<div id="footerwrap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<h4>Acerca de</h4>
+					<div class="hline-w"></div>
+					<p>Ya sea que estés planeando una reunión o una ocasión especial, o que desees organizar una reunión de negocios que dure
+						todo el día, tenemos los recursos que necesitas para que tu próximo evento sea un éxito.</p>
+				</div>
+				<div class="col-lg-4">
+					<h4>Síguenos</h4>
+					<div class="hline-w"></div>
+					<p>
+						<a href="#"><i class="fa fa-dribbble"></i></a>
+						<a href="#"><i class="fa fa-facebook"></i></a>
+						<a href="#"><i class="fa fa-twitter"></i></a>
+						<a href="#"><i class="fa fa-instagram"></i></a>
+						<a href="#"><i class="fa fa-tumblr"></i></a>
+					</p>
+				</div>
+				<div class="col-lg-4">
+					<h4>Estamos Úbicados</h4>
+					<div class="hline-w"></div>
+					<p>
+						Dirección: Calle 8 Av. San Martin, Cartagena, 130001, Colombia<br/> Teléfono: 57-5-6945000<br/> Fax: 57-5-6939800<br/>
+					</p>
+				</div>
+
+			</div>
+			<! --/row -->
+		</div>
+		<! --/container -->
+	</div>
+	<! --/footerwrap -->
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="Scripts/jquery/jquery.min.js"></script>
+	<script src="Scripts/bootstrap/js/bootstrap.min.js"></script>
+	<script src="Scripts/ko/Lib/knockout.js"></script>
+	<script src="Scripts/ko/Lib/knockout.localStorage.js"></script>
+	<script src="Scripts/ko/Lib/moment.js"></script>
+	<script src="Scripts/ko/EventosGeneral/mainEventosGeneral.js"></script>
+	<script src="Scripts/ko/EventosGeneral/eventosGeneralViewModel.js"></script>
+	<script src="assets/js/retina-1.1.0.js"></script>
+	<script src="assets/js/jquery.hoverdir.js"></script>
+	<script src="assets/js/jquery.hoverex.min.js"></script>
+	<script src="assets/js/jquery.prettyPhoto.js"></script>
+	<script src="assets/js/jquery.isotope.min.js"></script>
+	<script src="assets/js/custom.js"></script>
+
+
+	<script>
+		// Portfolio
+		(function ($) {
+			"use strict";
+			var $container = $('.portfolio'),
+				$items = $container.find('.portfolio-item'),
+				portfolioLayout = 'fitRows';
+
+			if ($container.hasClass('portfolio-centered')) {
+				portfolioLayout = 'masonry';
+			}
+
+			$container.isotope({
+				filter: '*',
+				animationEngine: 'best-available',
+				layoutMode: portfolioLayout,
+				animationOptions: {
+					duration: 750,
+					easing: 'linear',
+					queue: false
+				},
+				masonry: {
+				}
+			}, refreshWaypoints());
+
+			function refreshWaypoints() {
+				setTimeout(function () {
+				}, 1000);
+			}
+
+			$('nav.portfolio-filter ul a').on('click', function () {
+				var selector = $(this).attr('data-filter');
+				$container.isotope({ filter: selector }, refreshWaypoints());
+				$('nav.portfolio-filter ul a').removeClass('active');
+				$(this).addClass('active');
+				return false;
+			});
+
+			function getColumnNumber() {
+				var winWidth = $(window).width(),
+					columnNumber = 1;
+
+				if (winWidth > 1200) {
+					columnNumber = 5;
+				} else if (winWidth > 950) {
+					columnNumber = 4;
+				} else if (winWidth > 600) {
+					columnNumber = 3;
+				} else if (winWidth > 400) {
+					columnNumber = 2;
+				} else if (winWidth > 250) {
+					columnNumber = 1;
+				}
+				return columnNumber;
+			}
+
+			function setColumns() {
+				var winWidth = $(window).width(),
+					columnNumber = getColumnNumber(),
+					itemWidth = Math.floor(winWidth / columnNumber);
+
+				$container.find('.portfolio-item').each(function () {
+					$(this).css({
+						width: itemWidth + 'px'
+					});
+				});
+			}
+
+			function setPortfolio() {
+				setColumns();
+				$container.isotope('reLayout');
+			}
+
+			$container.imagesLoaded(function () {
+				setPortfolio();
+			});
+
+			$(window).on('resize', function () {
+				setPortfolio();
+			});
+		})(jQuery);
+	</script>
+</body>
+
+</html>

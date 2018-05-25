@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Explorer</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container classCont">
+        <div class="row">
+
+            <div class="col-lg-12 centered">
+                <div class="col-l-3">
+                    <img class="imgLogo" src="assets/img/design/logo.png" />
+                </div>
+            </div>
+            <div class="col-lg-3 centered">
+
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Nombre de Usuario">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Contraseña">
+                </div>
+                <div class="form-group">
+                    <a href="#">¿Olvidaste tu contraseña?</a>
+                </div>
+                <div class="alert-box" id="msjRequerido"></div>
+
+                <div class="form-group">
+                    <a href="mapa.html" type="button" class="btn btn-primary-hq">Iniciar Sesión</a>
+                </div>
+
+                <div class="form-group">
+                    <a class="btn btn-block btn-social btn-facebook" onclick="login()">
+                        <i class="fa fa-facebook"></i> Iniciar con Facebook
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--cordova.js is automatically injected by the Cordova build process-->
+    <script src="cordova.js"></script>
+
+    <script src="assets/js/fb/openfb.js"></script>
+    <script src="Scripts/jquery/jquery.min.js"></script>
+    <script src="Scripts/bootstrap/js/bootstrap.min.js"></script>
+    <script src="Scripts/ko/Lib/knockout.js"></script>
+    <script src="Scripts/ko/Lib/knockout.localStorage.js"></script>
+    <script src="Scripts/ko/Lib/moment.js"></script>
+
+    <script>
+        // Defaults to sessionStorage for storing the Facebook token
+        openFB.init({ appId: '210616289507122' });
+
+        //  Uncomment the line below to store the Facebook token in localStorage instead of sessionStorage
+        //  openFB.init({appId: 'YOUR_FB_APP_ID', tokenStore: window.localStorage});
+
+        function login() {
+            openFB.login(
+                function (response) {
+                    if (response.status === 'connected') {
+                        //alert('Facebook login succeeded, got access token: ' + response.authResponse.accessToken);
+                        //getInfo();
+                        window.location.href = "mapa.html";
+                    } else {
+                        alert('Facebook login failed: ' + response.error);
+                    }
+                }, { scope: 'email,read_stream,publish_actions' });
+        }
+
+        function getInfo() {
+            openFB.api({
+                path: '/me',
+                success: function (data) {
+                    //console.log(JSON.stringify(data));
+                    window.localStorage.setItem("userName",data.name);
+                    window.localStorage.setItem("userPic",data.id);
+                   // document.getElementById("userName").innerHTML = data.name;
+                   // document.getElementById("userPic").src = 'http://graph.facebook.com/' + data.id + '/picture?type=small';
+                },
+                error: errorHandler
+            });
+        }
+
+        function share() {
+            openFB.api({
+                method: 'POST',
+                path: '/me/feed',
+                params: {
+                    message: document.getElementById('Message').value || 'Testing Facebook APIs'
+                },
+                success: function () {
+                    alert('the item was posted on Facebook');
+                },
+                error: errorHandler
+            });
+        }
+
+        function readPermissions() {
+            openFB.api({
+                method: 'GET',
+                path: '/me/permissions',
+                success: function (result) {
+                    alert(JSON.stringify(result.data));
+                },
+                error: errorHandler
+            });
+        }
+
+        function revoke() {
+            openFB.revokePermissions(
+                function () {
+                    alert('Permissions revoked');
+                },
+                errorHandler);
+        }
+
+        function logout() {
+            openFB.logout(
+                function () {
+                    alert('Logout successful');
+                },
+                errorHandler);
+        }
+
+        function errorHandler(error) {
+            alert(error.message);
+        }
+
+    </script>
+</body>
+
+</html>

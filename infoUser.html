@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>User</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body style="padding-bottom: 50px;padding-top: 70px;">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div style="vertical-align: middle" class="navbar-header">
+                <img class="img-logosmall" src="assets/img/design/logo-small.png" />
+                <a style="float:right; margin-right:20px; margin-top:10px" href="eventsGeneral.html" type="button" class="btnOption">
+                    <i class="fa fa-calendar fa-3x"></i>
+                </a>
+            </div>
+
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+    <br/>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="col-lg-3 centered">
+                    <div class="form-group">
+                        <p>Hola <span id="userName"></span>!</p>
+                        <img id="userPic" />
+                    </div>
+                    <div class="form-group">
+                        <textarea id="Message" placeholder="¿Que quieres compartir de Hoy Quien?" rows="5"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-block btn-primary" onclick="share()">Publicar</button>
+                    </div>
+                    <div class="form-group">
+                        <p>Completa el cierre de sesión de Facebook. Después de cerrar la sesión, tendrá que volver a iniciar
+                            sesión y proporcionar sus credenciales de Facebook.</p>
+                        <button class="btn btn-block btn-primary-hq" onclick="logout()">Cerrar Sesión</button>
+                    </div>
+                    <br/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="col-lg-3 bottomborder">
+                </div>
+                <div class="col-lg-5 bottomborder-r">
+                </div>
+            </div>
+        </div>
+        <div id="divTool" class="container panel-body navfooter centered">
+					<a style="margin-right:15px" data-bind="attr:{href: 'mapa.html'}" type="button" class="btnOption">
+						<i class="fa fa-globe fa-2x"></i>
+					</a>
+					<a style="margin-right:15px" data-bind="attr:{href: 'sitesBrowser.html?idCategory=1&view=mapa'}" type="button" class="btnOption mapa">
+						<i class="fa fa-cutlery fa-2x"></i>
+					</a>
+					<a style="margin-right:15px" data-bind="attr:{href: 'sitesBrowser.html?idCategory=2&view=palma'}" type="button" class="btnOption palma">
+						<img class="imgPalm" src="assets/img/design/iconPalmB.png" width="45px" height="45px" />
+					</a>
+					<a style="margin-right:15px" data-bind="attr:{href: 'sitesBrowser.html?idCategory=4&view=nocturno'}" type="button" class="btnOption nocturno">
+						<i class="fa fa-glass fa-2x"></i>
+					</a>
+					<a style="margin-right:15px" data-bind="attr:{href: 'sitesBrowser.html?idCategory=3&view=sports'}" type="button" class="btnOption sports">
+						<img class="imgSports" src="assets/img/design/iconSports.png" width="45px" height="45px" />
+					</a>
+					<a style="margin-right:15px" href="eventsGeneral.html" type="button" class="btnOption">
+						<i class="fa fa-calendar fa-2x"></i>
+					</a>
+					<a data-bind="attr:{href: 'infoUser.html'}" type="button" class="btnOption current">
+						<i class="fa fa-user fa-2x"></i>
+					</a>
+
+				</div>
+    </nav>
+
+    <!--cordova.js is automatically injected by the Cordova build process-->
+    <script src="Scripts/jquery/jquery.min.js"></script>
+    <script src="Scripts/bootstrap/js/bootstrap.min.js"></script>
+    <script src="Scripts/ko/Lib/knockout.js"></script>
+    <script src="Scripts/ko/Lib/knockout.localStorage.js"></script>
+    <script src="Scripts/ko/Lib/moment.js"></script>
+    <script src="Scripts/ko/UserInfo/mainUserInfo.js"></script>
+    <script src="Scripts/ko/UserInfo/infoUserViewModel.js"></script>
+    <script src="cordova.js"></script>
+
+    <script src="assets/js/fb/openfb.js"></script>
+
+
+    <script>
+        // Defaults to sessionStorage for storing the Facebook token
+        openFB.init({ appId: '210616289507122' });
+
+        //  Uncomment the line below to store the Facebook token in localStorage instead of sessionStorage
+        //  openFB.init({appId: 'YOUR_FB_APP_ID', tokenStore: window.localStorage});
+
+        function login() {
+            openFB.login(
+                function (response) {
+                    if (response.status === 'connected') {
+                        //alert('Facebook login succeeded, got access token: ' + response.authResponse.accessToken);
+                        window.location.href = "mapa.html";
+                    } else {
+                        alert('Facebook login failed: ' + response.error);
+                    }
+                }, { scope: 'email,read_stream,publish_actions' });
+        }
+
+        function getInfo() {
+            openFB.api({
+                path: '/me',
+                success: function (data) {
+                    //console.log(JSON.stringify(data));
+                    window.localStorage.setItem("userName", data.name);
+                    window.localStorage.setItem("userPic", data.id);
+                    document.getElementById("userName").innerHTML = data.name;
+                    document.getElementById("userPic").src = 'http://graph.facebook.com/' + data.id + '/picture?type=small';
+                },
+                error: errorHandler
+            });
+        }
+
+        function share() {
+            openFB.api({
+                method: 'POST',
+                path: '/me/feed',
+                params: {
+                    message: document.getElementById('Message').value || 'Probando Hoy Quien!'
+                },
+                success: function () {
+                    alert('Tu mensaje fué publicado!');
+                },
+                error: errorHandler
+            });
+        }
+
+        function readPermissions() {
+            openFB.api({
+                method: 'GET',
+                path: '/me/permissions',
+                success: function (result) {
+                    alert(JSON.stringify(result.data));
+                },
+                error: errorHandler
+            });
+        }
+
+        function revoke() {
+            openFB.revokePermissions(
+                function () {
+                    alert('Permissions revoked');
+                },
+                errorHandler);
+        }
+
+        function logout() {
+            openFB.logout(
+                function () {
+                    //alert('Logout successful');
+                    window.location.href = "index.html";
+                },
+                errorHandler);
+        }
+
+        function errorHandler(error) {
+            alert(error.message);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Geolocation</title>
+	<script src="Scripts/jquery/jquery.min.js"></script>
+	<script src="Scripts/bootstrap/js/bootstrap.min.js"></script>
+	<script src="Scripts/ko/Lib/knockout.js"></script>
+	<script src="Scripts/ko/Lib/knockout.localStorage.js"></script>
+	<script src="Scripts/ko/Lib/moment.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+	<script src="Scripts/ko/Mapa/mainMapa.js"></script>
+    <script src="Scripts/ko/Mapa/mapaViewModel.js"></script>
+	<script type="../text/javascript" src="../engine1/jquery.js"></script>
+
+
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+	<meta charset="utf-8">
+	<link href="assets/css/bootstrap.css" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/css/font-awesome.min.css" rel="stylesheet">
+	<style>
+		html,
+		body,
+		#map-canvas {
+			height: 100%;
+			width: 100%;
+			margin: 0px;
+			padding: 0px ;
+			position:absolute !important;
+			top: 0px;
+			right: 0px;
+			left: 0px !important;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<img class="img-logosmall" src="assets/img/design/logo-small.png" />
+			</div>
+
+			<!--/.nav-collapse -->
+		</div>
+	</div>
+
+	<div id="map-canvas"> </div>
+
+	<nav class="navbar navbar-default navbar-fixed-bottom">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="col-lg-3 bottomborder">
+				</div>
+				<div class="col-lg-5 bottomborder-r">
+				</div>
+			</div>
+		</div>
+		<div id="divTool" class="container panel-body navfooter centered">
+					<a style="margin-right:15px" data-bind="attr:{href: 'mapa.html'}" type="button" class="btnOption current">
+						<i class="fa fa-globe fa-2x"></i>
+					</a>
+					<a style="margin-right:15px" data-bind="attr:{href: 'sitesBrowser.html?idCategory=1&view=mapa'}" type="button" class="btnOption mapa">
+						<i class="fa fa-cutlery fa-2x"></i>
+					</a>
+					<a style="margin-right:15px" data-bind="attr:{href: 'sitesBrowser.html?idCategory=2&view=palma'}" type="button" class="btnOption palma">
+						<img class="imgPalm" src="assets/img/design/iconPalmB.png" width="45px" height="45px" />
+					</a>
+					<a style="margin-right:15px" data-bind="attr:{href: 'sitesBrowser.html?idCategory=4&view=nocturno'}" type="button" class="btnOption nocturno">
+						<i class="fa fa-glass fa-2x"></i>
+					</a>
+					<a style="margin-right:15px" data-bind="attr:{href: 'sitesBrowser.html?idCategory=3&view=sports'}" type="button" class="btnOption sports">
+						<img class="imgSports" src="assets/img/design/iconSports.png" width="45px" height="45px" />
+					</a>
+					<a style="margin-right:15px" href="eventsGeneral.html" type="button" class="btnOption">
+						<i class="fa fa-calendar fa-2x"></i>
+					</a>
+					<a data-bind="attr:{href: 'infoUser.html'}" type="button" class="btnOption">
+						<i class="fa fa-user fa-2x"></i>
+					</a>
+
+				</div>
+	</nav>
+
+</body>
+
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+
+    <title>Sitios</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="assets/js/modernizr.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+   <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Site Explorer</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-right">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="index.html">INICIO</a></li>
+			<li class="active"><a href="sitesBrowser.html">BUSCAR SITIOS</a></li>
+            <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-gear fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="createSite.html"><i class="fa-building fa-fw"></i> Crear Sitio</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+
+	<!-- *****************************************************************************************************************
+	 BLUE WRAP
+	 ***************************************************************************************************************** -->
+	 <div id="blue">
+		<div class="container">
+			<div class="row">
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+
+	<!-- *****************************************************************************************************************
+	 TITLE & CONTENT
+	 ***************************************************************************************************************** -->
+
+	 <div class="container mtb">
+	 	<div class="row">
+		 	
+		 <div class="col-lg-9">
+			 
+			 <div class="row">
+				  <div class="col-lg-6">
+						<h4>Categorías</h4>
+						<div class="hline"></div>
+						<br/>
+						<div class="list-group" data-bind="foreach: availableCategories">
+							<a data-bind="event: {click: $root.categoryChanged}" class="list-group-item list-group-item-info">
+								<i class="fa fa-th-large fa-fw"></i>
+								<span data-bind="text: nombre"></span>
+								<span data-bind="text: NumSites" class="badge">14</span>
+							</a>
+						</div>
+					</div>
+			 <h4>Sitios</h4>
+		 		<div class="hline"></div>
+				 <br/>
+		 			<div class="form-group">
+                                            <input type="text" placeholder="Nombre Sitio" class="typeahead" data-provide="typeahead" autocomplete="off" class="form-control">
+                                          
+                                        </div>
+		 			
+		 		<div class="spacing"></div>
+			 </div>
+			
+		 		<div class="spacing"></div>
+			 </div>
+			 </div>
+			 <!-- *****************************************************************************************************************
+	 PORTFOLIO SECTION
+	 ***************************************************************************************************************** -->
+	 <div class="row">
+		 <div class="col-lg-12">
+			<div id="portfoliowrap">
+				<div class="portfolio-centered" data-bind="foreach: availableSites">
+				<div class="col-lg-4">
+						<div class="portfolio-item graphic-design">
+							<div class="he-wrap tpl6">
+							<img width="270px" height="201px" data-bind="attr:{src:'http://www.hoyque.co/sitexplorer/DataSites/'+Logo}" alt="Imagen">
+								<div class="he-view">
+									<div class="bg a0" data-animate="fadeIn">
+										<h3 class="a1" data-animate="fadeInDown" data-bind="text: name">Nombre Sitio</h3>
+										
+										<a data-bind="attr:{href:'singleSite.html?idSite='+ id}" href="singleSite.html" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-link"></i></a>
+										<a data-bind="attr:{href:'adminSite.html?idSite='+ id}" href="singleSite.html" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-gear"></i></a>
+									</div><!-- he bg -->
+								</div><!-- he view -->		
+							</div><!-- he wrap -->
+						</div><!-- end col-12 -->
+				</div>
+				</div><!-- portfolio container -->
+			</div><!--/Portfoliowrap -->
+		 </div>
+	 </div>
+		 </div>
+	 </div><! --/container -->
+	 </div> 
+		<!-- *****************************************************************************************************************
+	 FOOTER
+	 ***************************************************************************************************************** -->
+	 <div id="footerwrap">
+	 	<div class="container">
+		 	<div class="row">
+		 		<div class="col-lg-4">
+		 			<h4>Acerca de Este Sitio</h4>
+		 			<div class="hline-w"></div>
+		 			<p>Sincero el paisaje sin fotografías sin planear el viaje sin contar los días Sintiendo la briza sin ninguna prisa sin complicaciones sin evitar emociones Singular y natural sin obligar ni forzar sin pensar mal sin dejar de amar.</p>
+		 		</div>
+		 		<div class="col-lg-4">
+		 			<h4>Síguenos</h4>
+		 			<div class="hline-w"></div>
+		 			<p>
+		 				<a href="#"><i class="fa fa-dribbble"></i></a>
+		 				<a href="#"><i class="fa fa-facebook"></i></a>
+		 				<a href="#"><i class="fa fa-twitter"></i></a>
+		 				<a href="#"><i class="fa fa-instagram"></i></a>
+		 				<a href="#"><i class="fa fa-tumblr"></i></a>
+		 			</p>
+		 		</div>
+		 		<div class="col-lg-4">
+		 			<h4>Nuestra Ubicacón</h4>
+		 			<div class="hline-w"></div>
+		 			<p>
+		 			Dirección: Calle 8 Av. San Martin, Cartagena, 130001, Colombia<br/>
+Teléfono: 57-5-6945000<br/>
+Fax: 57-5-6939800<br/>
+		 			</p>
+		 		</div>
+		 	
+		 	</div><! --/row -->
+	 	</div><! --/container -->
+	 </div><! --/footerwrap -->
+	 
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="Scripts/jquery/jquery.min.js"></script>
+	<script src="Scripts/bootstrap/js/bootstrap.min.js"></script>
+	<script src="Scripts/bootstrap/typeahead/bootstrap3-typeahead.min.js"></script>
+	<script src="Scripts/ko/Lib/knockout.js"></script>
+	<script src="Scripts/ko/Lib/knockout.localStorage.js"></script>
+	<script src="Scripts/ko/Lib/moment.js"></script>
+	<script src="Scripts/ko/BuscadorSitios/mainBuscadorSitiosAdmin.js"></script>
+	<script src="Scripts/ko/BuscadorSitios/buscadorSitiosAdminViewModel.js"></script>
+	<script src="assets/js/retina-1.1.0.js"></script>
+	<script src="assets/js/jquery.hoverdir.js"></script>
+	<script src="assets/js/jquery.hoverex.min.js"></script>
+	<script src="assets/js/jquery.prettyPhoto.js"></script>
+  	<script src="assets/js/jquery.isotope.min.js"></script>
+  	<script src="assets/js/custom.js"></script>
+
+
+    <script>
+// Portfolio
+(function($) {
+	"use strict";
+	var $container = $('.portfolio'),
+		$items = $container.find('.portfolio-item'),
+		portfolioLayout = 'fitRows';
+		
+		if( $container.hasClass('portfolio-centered') ) {
+			portfolioLayout = 'masonry';
+		}
+				
+		$container.isotope({
+			filter: '*',
+			animationEngine: 'best-available',
+			layoutMode: portfolioLayout,
+			animationOptions: {
+			duration: 750,
+			easing: 'linear',
+			queue: false
+		},
+		masonry: {
+		}
+		}, refreshWaypoints());
+		
+		function refreshWaypoints() {
+			setTimeout(function() {
+			}, 1000);   
+		}
+				
+		$('nav.portfolio-filter ul a').on('click', function() {
+				var selector = $(this).attr('data-filter');
+				$container.isotope({ filter: selector }, refreshWaypoints());
+				$('nav.portfolio-filter ul a').removeClass('active');
+				$(this).addClass('active');
+				return false;
+		});
+		
+		function getColumnNumber() { 
+			var winWidth = $(window).width(), 
+			columnNumber = 1;
+		
+			if (winWidth > 1200) {
+				columnNumber = 5;
+			} else if (winWidth > 950) {
+				columnNumber = 4;
+			} else if (winWidth > 600) {
+				columnNumber = 3;
+			} else if (winWidth > 400) {
+				columnNumber = 2;
+			} else if (winWidth > 250) {
+				columnNumber = 1;
+			}
+				return columnNumber;
+			}       
+			
+			function setColumns() {
+				var winWidth = $(window).width(), 
+				columnNumber = getColumnNumber(), 
+				itemWidth = Math.floor(winWidth / columnNumber);
+				
+				$container.find('.portfolio-item').each(function() { 
+					$(this).css( { 
+					width : itemWidth + 'px' 
+				});
+			});
+		}
+		
+		function setPortfolio() { 
+			setColumns();
+			$container.isotope('reLayout');
+		}
+			
+		$container.imagesLoaded(function () { 
+			setPortfolio();
+		});
+		
+		$(window).on('resize', function () { 
+		setPortfolio();          
+	});
+})(jQuery);
+</script>
+  </body>
+</html>

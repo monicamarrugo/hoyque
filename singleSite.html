@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="assets/ico/favicon.ico">
+	<title>Sitio</title>
+	<!-- Bootstrap core CSS -->
+	<link href="assets/css/bootstrap.css" rel="stylesheet">
+	<!-- Custom styles for this template -->
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body style="padding-bottom: 50px;padding-top: 70px;">
+	<!-- Fixed navbar -->
+	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="mapa.html">
+					<img class="img-logosmall" src="assets/img/design/logo-small.png" />
+				</a>
+			</div>
+
+			<!--/.nav-collapse -->
+		</div>
+	</div>
+
+
+	<!-- *****************************************************************************************************************
+	 BLUE WRAP
+	 ***************************************************************************************************************** -->
+
+
+	<!-- *****************************************************************************************************************
+	 TITLE & CONTENT
+	 ***************************************************************************************************************** -->
+	<br/>
+	<div class="container">
+		<div class="row">
+			<div class="centered ">
+				<div id="divTool" class="container testimonial-group panel-history">
+					<div class="row" data-bind="foreach: availablesHistories">
+						<div class="img-wrap-outer-history" style=" display:inline-block">
+							<div class="product-media image imageHistory">
+								<a type="button" data-bind="click: $root.mostrarHistoria" class="imgHistory img-wrap" style="max-width: 70px">
+									<img class="img-history" data-bind="attr: {src: 'http://www.hoyque.co/sitexplorer/DataSites/' + imagen}">
+								</a>
+								<label class="truncateLabel" data-bind="text: titulo">Historias</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="centered">
+				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+					<!-- Indicators -->
+					<ol class="carousel-indicators">
+						<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+					</ol>
+
+					<!-- Wrapper for slides -->
+					<div class="carousel-inner">
+						<div class="item active">
+							<img data-bind="attr:{src:slide1}" alt="">
+							<div class="carousel-caption">
+								<h3 data-bind="text: nombreSitio">...</h3>
+							</div>
+						</div>
+						<div class="item">
+							<img data-bind="attr:{src:slide2}" alt="">
+							<div class="carousel-caption">
+								<h3 data-bind="text: nombreSitio">...</h3>
+							</div>
+						</div>
+						<div class="item">
+							<img data-bind="attr:{src:slide3}" alt="">
+							<div class="carousel-caption">
+								<h3 data-bind="text: nombreSitio">...</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+				<! --/Carousel -->
+			</div>
+			<div class="centered">
+				<a  data-bind="attr:{href: urlMapa}" class="btn btn-primary btn-lg btn-block"><i class="fa fa-map-marker fa-fw"></i> ¿Donde Está?</a>
+			</div>
+
+			<div class="col-lg-12 centered">
+				<div class="spacing"></div>
+				<p style="text-align: justify" data-bind="html: resena">Ubicado entre el mar Caribe y la bahía de Cartagena de Indias, en el animado distrito comercial y turístico de Bocagrande,
+					Maria'S Cartagena ofrece fácil acceso a todas las atracciones y opciones de entretenimiento que la ciudad tiene para
+					ofrecer. Nuestro hotel en Cartagena de Indias está a solo 15 minutos del aeropuerto y a 25 minutos de la zona industrial/portuaria.
+					Ya sea que estés en Cartagena de Indias de vacaciones, para asistir a una conferencia en el Centro de convenciones de
+					Cartagena de Indias o para visitar una de las empresas cercanas, el hotel Hampton Cartagena te ofrecerá la combinación
+					perfecta de elegancia y conveniencia en una ubicación excelente.</p>
+			</div>
+
+		</div>
+		<nav class="navbar navbar-default navbar-fixed-bottom">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="col-lg-3 bottomborder">
+					</div>
+					<div class="col-lg-5 bottomborder-r">
+					</div>
+				</div>
+			</div>
+			<div id="divTool" class="container panel-body navfooter centered">
+					<a style="margin-right:15px" data-bind="attr:{href: 'mapa.html'}" type="button" class="btnOption">
+						<i class="fa fa-globe fa-2x"></i>
+					</a>
+					<a style="margin-right:15px" data-bind="attr:{href: 'sitesBrowser.html?idCategory=1&view=mapa'}" type="button" class="btnOption mapa">
+						<i class="fa fa-cutlery fa-2x"></i>
+					</a>
+					<a style="margin-right:15px" data-bind="attr:{href: 'sitesBrowser.html?idCategory=2&view=palma'}" type="button" class="btnOption palma">
+						<img class="imgPalm" src="assets/img/design/iconPalmB.png" width="45px" height="45px" />
+					</a>
+					<a style="margin-right:15px" data-bind="attr:{href: 'sitesBrowser.html?idCategory=4&view=nocturno'}" type="button" class="btnOption nocturno">
+						<i class="fa fa-glass fa-2x"></i>
+					</a>
+					<a style="margin-right:15px" data-bind="attr:{href: 'sitesBrowser.html?idCategory=3&view=sports'}" type="button" class="btnOption sports">
+						<img class="imgSports" src="assets/img/design/iconSports.png" width="29px" height="29px" />
+					</a>
+					<a style="margin-right:15px" href="eventsGeneral.html" type="button" class="btnOption">
+						<i class="fa fa-calendar fa-2x"></i>
+					</a>
+					<a data-bind="attr:{href: 'infoUser.html'}" type="button" class="btnOption">
+						<i class="fa fa-user fa-2x"></i>
+					</a>
+
+				</div>
+		</nav>
+		<! --/row -->
+
+
+	</div>
+	<! --/container -->
+	<div class="modal fade" id="modalHistory" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 data-bind="text: titleSelectedHistory" class="modal-title">
+						Noche de San Valentin
+					</h4>
+				</div>
+				<div class="modal-body">
+					<div id="mycarousel" class="carouselHistory" data-interval="6000" data-ride="carousel">
+
+						<div class="carousel-inner" data-bind="foreach: availablesFilesHistory">
+							<div class="item">
+								<img data-bind="attr:{src:strbase64}" alt="" />
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<!-- *****************************************************************************************************************
+	 PORTFOLIO SECTION
+	 ***************************************************************************************************************** -->
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3> Lo que se está diciendo!</h3>
+		</div>
+		<!-- /.panel-heading -->
+		<div class="panel-body">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-lg-12" style="vertical-align: bottom; height: 100%">
+						<div class="input-group">
+							<input type="text" data-bind="value: commentHistory" class="form-control" placeholder="Comenta...">
+							<span class="input-group-btn">
+															<button class="btn btn-default" data-bind="event:{click: sendComment}" type="button"><i class="fa fa-chevron-right fa-fw"></i></button>
+														</span>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="list-group" data-bind="foreach: commentsSite">
+					<a href="#" class="list-group-item">
+						<i class="fa fa-comment fa-fw"></i>
+						<span class="pull-right text-muted small"><em data-bind="text: elapse">4 minutes ago</em>
+                                    </span>
+						<p data-bind="text: descripcion">Hola</p>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--/Portfoliowrap -->
+
+
+
+	<!-- *****************************************************************************************************************
+	 FOOTER
+	 ***************************************************************************************************************** -->
+	<div id="footerwrap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<h4>Estamos Úbicados</h4>
+					<div class="hline-w"></div>
+					<p>
+						Dirección: Calle 8 Av. San Martin, Cartagena, 130001, Colombia<br/> Teléfono: 57-5-6945000<br/> Fax: 57-5-6939800<br/>
+					</p>
+				</div>
+
+			</div>
+			<! --/row -->
+		</div>
+		<! --/container -->
+	</div>
+	<! --/footerwrap -->
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="Scripts/jquery/jquery.min.js"></script>
+	<script src="Scripts/bootstrap/js/bootstrap.min.js"></script>
+	<script src="Scripts/ko/Lib/knockout.js"></script>
+	<script src="Scripts/ko/Lib/knockout.localStorage.js"></script>
+	<script src="Scripts/ko/Lib/moment.js"></script>
+	<script src="Scripts/ko/MostrarSitio/mainMostrarSitio.js"></script>
+	<script src="Scripts/ko/MostrarSitio/mostrarSitioViewModel.js"></script>
+
+
+</body>
+
+</html>
